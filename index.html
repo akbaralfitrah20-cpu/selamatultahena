@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selamat Ulang Tahun, Ena Tersayang</title>
+  <!-- Google Fonts: Nunito & Lora (Jelas, ramah, dan mudah dibaca) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,400&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Menghubungkan CSS -->
+  <link rel="stylesheet" href="css/script.css" />
+</head>
+<body>
+
+  <!-- Header & Navigasi Halaman -->
+  <header class="top-bar">
+    <div class="brand-badge">
+      <span class="dot-pulse"></span>
+      <span>Edisi Spesial Ulang Tahun Ena</span>
+    </div>
+
+    <!-- Menu Cepat 5 Halaman -->
+    <nav class="page-tabs" aria-label="Navigasi Halaman">
+      <button class="tab-btn active" data-target="1">1. Sampul</button>
+      <button class="tab-btn" data-target="2">2. Surat Cinta</button>
+      <button class="tab-btn" data-target="3">3. Kenangan</button>
+      <button class="tab-btn" data-target="4">4. Kuis & Hadiah</button>
+      <button class="tab-btn" data-target="5">5. Doa & Peluk</button>
+    </nav>
+
+    <!-- Tombol Musik Latar -->
+    <button id="musicToggle" class="music-btn" aria-label="Putar atau Jeda Musik">
+      <span id="musicIcon">🎵</span>
+      <span id="musicText">Putar Musik</span>
+    </button>
+    <audio id="birthdayMusic" src="assets/audio/laguulangtahun.mp3" preload="auto" loop></audio>
+  </header>
+
+  <!-- Kontainer Utama Buku Cerita -->
+  <main class="book-container">
+
+    <!-- ================= HALAMAN 1: SAMPUL & TIUP LILIN ================= -->
+    <section class="book-page active" id="page-1" data-page="1">
+      <div class="scrapbook-card hero-card">
+        <div class="washi-tape top-left"></div>
+        <div class="washi-tape top-right"></div>
+
+        <span class="pill-tag">✨ Halaman 1 dari 5 — Pembuka Spesial</span>
+        <h1 class="main-title" id="heroTitle">Selamat Ulang Tahun, Ena Tersayang!</h1>
+        <p class="subtitle" id="heroSubtitle">
+          Hari ini semua jadwal dapur libur dulu ya Ena, karena hari ini khusus untuk merayakan wanita paling hebat, paling sabar, dan paling cantik sedunia.
+        </p>
+
+        <!-- Kue Ulang Tahun Interaktif -->
+        <div class="cake-stage">
+          <div class="cake-wrapper" id="cakeBox">
+            <!-- Lilin -->
+            <div class="candle">
+              <div class="flame" id="candleFlame"></div>
+              <div class="smoke" id="candleSmoke"></div>
+            </div>
+            <!-- Lapisan Kue -->
+            <div class="cake-top">
+              <div class="icing-drip"></div>
+            </div>
+            <div class="cake-base"></div>
+            <div class="cake-plate"></div>
+          </div>
+
+          <p class="wish-status" id="wishStatus">
+            Pejamkan mata sebentar, buat permohonan terbaik Ena, lalu tekan tombol di bawah ya!
+          </p>
+
+          <div class="hero-actions">
+            <button id="blowCandleBtn" class="btn-primary btn-large">
+              🎂 Tiup Lilin Sekarang
+            </button>
+            <button id="relightCandleBtn" class="btn-secondary hidden">
+              🔥 Nyalakan Lilin Lagi
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HALAMAN 2: SURAT CINTA ================= -->
+    <section class="book-page" id="page-2" data-page="2">
+      <div class="scrapbook-card letter-section">
+        <div class="washi-tape top-center"></div>
+        <span class="pill-tag">💌 Halaman 2 dari 5 — Sepucuk Surat</span>
+        <h2 class="section-title">Pesan Kecil dari Anakmu</h2>
+        <p class="section-desc">Ketuk segel hati pada amplop di bawah ini untuk membuka surat spesial untuk Ena.</p>
+
+        <!-- Amplop Interaktif -->
+        <div class="envelope-wrapper" id="envelopeContainer">
+          <div class="envelope-flap" id="envelopeFlap"></div>
+          <div class="envelope-body">
+            <button id="openEnvelopeBtn" class="wax-seal-btn" aria-label="Buka Surat">
+              ❤️
+              <span>Ketuk<br>Buka</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Kertas Surat Bergaris (Muncul saat dibuka) -->
+        <article class="lined-paper hidden" id="letterPaper">
+          <div class="paper-header">
+            <span class="stamp-box">🌸<br>TERIMA KASIH<br>IBU</span>
+            <div>
+              <p class="letter-date" id="letterDate">Edisi Ulang Tahun</p>
+              <h3 class="letter-greeting" id="letterGreeting">Untuk Ena Tercinta,</h3>
+            </div>
+          </div>
+
+          <div class="letter-content" id="letterBody">
+            <!-- Diisi otomatis dari data.js -->
+          </div>
+
+          <div class="letter-footer">
+            <p id="letterSign">Dengan penuh cinta dan peluk hangat,<br><strong>Anakmu Tersayang</strong></p>
+            <button id="closeEnvelopeBtn" class="btn-text">Tutup Kembali Amplop</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= HALAMAN 3: GALERI KENANGAN ================= -->
+    <section class="book-page" id="page-3" data-page="3">
+      <div class="scrapbook-card">
+        <span class="pill-tag">📸 Halaman 3 dari 5 — Album Foto</span>
+        <h2 class="section-title">Momen Manis & Lucu Bersama Ena</h2>
+        <p class="section-desc">Sentuh atau klik salah satu foto polaroid di bawah ini untuk membaca cerita di baliknya.</p>
+
+        <!-- Filter Kategori -->
+        <div class="filter-bar" id="galleryFilters">
+          <button class="filter-btn active" data-filter="semua">Semua Foto</button>
+          <button class="filter-btn" data-filter="kebersamaan">Kebersamaan</button>
+          <button class="filter-btn" data-filter="kuliner">Masakan & Kuliner</button>
+          <button class="filter-btn" data-filter="lucu">Momen Lucu</button>
+        </div>
+
+        <!-- Grid Kartu Polaroid -->
+        <div class="polaroid-grid" id="polaroidGrid">
+          <!-- Diisi otomatis dari data.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HALAMAN 4: KUIS & KARTU GOSOK HADIAH ================= -->
+    <section class="book-page" id="page-4" data-page="4">
+      <div class="scrapbook-card">
+        <span class="pill-tag">🎁 Halaman 4 dari 5 — Kejutan & Permainan</span>
+        <h2 class="section-title">Tebak-Tebakan & Kupon Hadiah Ena</h2>
+
+        <div class="interactive-split">
+          <!-- Kolom Kiri: Mini Kuis -->
+          <div class="sub-panel quiz-panel">
+            <h3>1. Kuis Kecil Seputar Ena 😄</h3>
+            <p class="small-hint">Coba jawab pertanyaan ringan ini ya Ena!</p>
+
+            <div id="quizBox">
+              <p class="quiz-question" id="quizQuestion">Memuat pertanyaan...</p>
+              <div class="quiz-options" id="quizOptions"></div>
+              <p class="quiz-feedback" id="quizFeedback"></p>
+              <button id="nextQuizBtn" class="btn-secondary hidden">Pertanyaan Berikutnya →</button>
+            </div>
+          </div>
+
+          <!-- Kolom Kanan: Kartu Gosok Kupon Hadiah -->
+          <div class="sub-panel scratch-panel">
+            <h3>2. Kartu Gosok Kupon Spesial 🎟️</h3>
+            <p class="small-hint">Usap kotak berwarna pink di bawah pakai jari atau mouse untuk melihat hadiah Ena!</p>
+
+            <div class="scratch-card-container">
+              <!-- Hadiah di balik lapisan gosok -->
+              <div class="coupon-prize" id="couponPrize">
+                <span class="coupon-badge">KUPON RESMI</span>
+                <h4 id="couponTitle">Kupon Pijat Bahu 30 Menit</h4>
+                <p id="couponDesc">Berlaku kapan saja saat Ena merasa pegal. Tanpa syarat!</p>
+              </div>
+              <!-- Kanvas lapisan yang digosok -->
+              <canvas id="scratchCanvas" width="320" height="190"></canvas>
+            </div>
+
+            <div class="scratch-controls">
+              <button id="newCouponBtn" class="btn-secondary">🔄 Ganti Kupon Lain</button>
+              <a id="claimWaBtn" href="#" target="_blank" rel="noopener" class="btn-primary">
+                📲 Klaim Hadiah via WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HALAMAN 5: DOA & PELUK PENUTUP ================= -->
+    <section class="book-page" id="page-5" data-page="5">
+      <div class="scrapbook-card closing-card">
+        <div class="washi-tape top-left"></div>
+        <div class="washi-tape top-right"></div>
+
+        <span class="pill-tag">🤲 Halaman 5 dari 5 — Doa Terbaik</span>
+        <h2 class="section-title">Doa Tulus untuk Ena</h2>
+
+        <div class="prayer-box" id="prayerBox">
+          <!-- Diisi otomatis dari data.js -->
+        </div>
+
+        <div class="hug-counter-box">
+          <p>Sudah mengirim pelukan virtual untuk Ena hari ini?</p>
+          <button id="sendHugBtn" class="btn-primary btn-large">
+            🤗 Kirim Peluk Hangat untuk Ena
+          </button>
+          <p class="hug-count-text">Total peluk terkirim: <strong id="hugCount">0</strong> kali ❤️</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Navigasi Bawah (Tombol Besar Sebelumnya / Berikutnya) -->
+  <footer class="bottom-nav">
+    <button id="prevPageBtn" class="nav-arrow-btn" disabled>← Sebelumnya</button>
+
+    <div class="page-indicator">
+      <span id="pageIndicatorText">Halaman 1 / 5</span>
+      <div class="dots-row" id="pageDots">
+        <span class="dot active" data-target="1"></span>
+        <span class="dot" data-target="2"></span>
+        <span class="dot" data-target="3"></span>
+        <span class="dot" data-target="4"></span>
+        <span class="dot" data-target="5"></span>
+      </div>
+    </div>
+
+    <button id="nextPageBtn" class="nav-arrow-btn primary-arrow">Halaman Berikutnya →</button>
+  </footer>
+
+  <!-- Modal Cerita di Balik Foto -->
+  <div class="modal-backdrop hidden" id="photoModal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button class="modal-close" id="closeModalBtn" aria-label="Tutup">✕</button>
+      <img id="modalImg" src="" alt="Kenangan bersama Ena" />
+      <span class="pill-tag" id="modalCategory">Kategori</span>
+      <h3 id="modalTitle">Judul Foto</h3>
+      <p id="modalStory">Cerita lengkap di balik foto ini.</p>
+    </div>
+  </div>
+
+  <!-- Layer Animasi Konfeti / Hati Melayang -->
+  <div id="floatingEffects" aria-hidden="true"></div>
+
+  <!-- Urutan script: data.js dulu, baru script.js -->
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
